@@ -7,9 +7,14 @@ public class IzbacivacIzKluba {
         try {
             System.out.println("Unesite svoje godine:");
             int dob = scanner.nextInt();
+            if (dob < 0) {
+                throw new NegativanBrojException("Dob");
+            }
             provjeriDob(dob);
         } catch (IllegalArgumentException e) {
             System.out.println("Ulaz zabranjen: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
